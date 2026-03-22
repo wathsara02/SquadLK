@@ -1,0 +1,377 @@
+
+[1m[31mError: [39m[22m[31m[1mPrisma schema validation[22m[39m - (validate wasm)
+Error code: P1012
+[31m[1m[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:11[0m
+[1;94m   | [0m
+[1;94m10 | [0menum Role { USER; MODERATOR; ADMIN; SUPER_ADMIN }
+[1;94m11 | [0m[1;91menum ProfileVisibility { PUBLIC; FRIENDS_ONLY; PRIVATE }[0m
+[1;94m12 | [0menum MessagePermission { ANYONE; FRIENDS_ONLY }
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:12[0m
+[1;94m   | [0m
+[1;94m11 | [0menum ProfileVisibility { PUBLIC; FRIENDS_ONLY; PRIVATE }
+[1;94m12 | [0m[1;91menum MessagePermission { ANYONE; FRIENDS_ONLY }[0m
+[1;94m13 | [0menum District { COLOMBO; GAMPAHA; KALUTARA; KANDY; MATALE; NUWARA_ELIYA; GALLE; MATARA; HAMBANTOTA; JAFFNA; KILINOCHCHI; MANNAR; VAVUNIYA; MULLAITIVU; BATTICALOA; AMPARA; TRINCOMALEE; KURUNEGALA; PUTTALAM; ANURADHAPURA; POLONNARUWA; BADULLA; MONARAGALA; RATNAPURA; KEGALLE }
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:13[0m
+[1;94m   | [0m
+[1;94m12 | [0menum MessagePermission { ANYONE; FRIENDS_ONLY }
+[1;94m13 | [0m[1;91menum District { COLOMBO; GAMPAHA; KALUTARA; KANDY; MATALE; NUWARA_ELIYA; GALLE; MATARA; HAMBANTOTA; JAFFNA; KILINOCHCHI; MANNAR; VAVUNIYA; MULLAITIVU; BATTICALOA; AMPARA; TRINCOMALEE; KURUNEGALA; PUTTALAM; ANURADHAPURA; POLONNARUWA; BADULLA; MONARAGALA; RATNAPURA; KEGALLE }[0m
+[1;94m14 | [0menum Language { ENGLISH; SINHALA; TAMIL }
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:14[0m
+[1;94m   | [0m
+[1;94m13 | [0menum District { COLOMBO; GAMPAHA; KALUTARA; KANDY; MATALE; NUWARA_ELIYA; GALLE; MATARA; HAMBANTOTA; JAFFNA; KILINOCHCHI; MANNAR; VAVUNIYA; MULLAITIVU; BATTICALOA; AMPARA; TRINCOMALEE; KURUNEGALA; PUTTALAM; ANURADHAPURA; POLONNARUWA; BADULLA; MONARAGALA; RATNAPURA; KEGALLE }
+[1;94m14 | [0m[1;91menum Language { ENGLISH; SINHALA; TAMIL }[0m
+[1;94m15 | [0menum Platform { PC; PLAYSTATION; XBOX; MOBILE; SWITCH }
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:15[0m
+[1;94m   | [0m
+[1;94m14 | [0menum Language { ENGLISH; SINHALA; TAMIL }
+[1;94m15 | [0m[1;91menum Platform { PC; PLAYSTATION; XBOX; MOBILE; SWITCH }[0m
+[1;94m16 | [0menum PlayStyle { CASUAL; COMPETITIVE; CHILL; TRYHARD; RANKED_PUSH; BEGINNER_FRIENDLY }
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:16[0m
+[1;94m   | [0m
+[1;94m15 | [0menum Platform { PC; PLAYSTATION; XBOX; MOBILE; SWITCH }
+[1;94m16 | [0m[1;91menum PlayStyle { CASUAL; COMPETITIVE; CHILL; TRYHARD; RANKED_PUSH; BEGINNER_FRIENDLY }[0m
+[1;94m17 | [0m
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:18[0m
+[1;94m   | [0m
+[1;94m17 | [0m
+[1;94m18 | [0m[1;91mmodel User {[0m
+[1;94m19 | [0m  id                String            @id @default(cuid())
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:19[0m
+[1;94m   | [0m
+[1;94m18 | [0mmodel User {
+[1;94m19 | [0m  [1;91mid                String            @id @default(cuid())[0m
+[1;94m20 | [0m  email             String            @unique
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:20[0m
+[1;94m   | [0m
+[1;94m19 | [0m  id                String            @id @default(cuid())
+[1;94m20 | [0m  [1;91memail             String            @unique[0m
+[1;94m21 | [0m  passwordHash      String
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:21[0m
+[1;94m   | [0m
+[1;94m20 | [0m  email             String            @unique
+[1;94m21 | [0m  [1;91mpasswordHash      String[0m
+[1;94m22 | [0m  displayName       String
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:22[0m
+[1;94m   | [0m
+[1;94m21 | [0m  passwordHash      String
+[1;94m22 | [0m  [1;91mdisplayName       String[0m
+[1;94m23 | [0m  username          String            @unique
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:23[0m
+[1;94m   | [0m
+[1;94m22 | [0m  displayName       String
+[1;94m23 | [0m  [1;91musername          String            @unique[0m
+[1;94m24 | [0m  profilePhoto      String?
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:24[0m
+[1;94m   | [0m
+[1;94m23 | [0m  username          String            @unique
+[1;94m24 | [0m  [1;91mprofilePhoto      String?[0m
+[1;94m25 | [0m  bio               String?
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:25[0m
+[1;94m   | [0m
+[1;94m24 | [0m  profilePhoto      String?
+[1;94m25 | [0m  [1;91mbio               String?[0m
+[1;94m26 | [0m  country           String            @default("LK")
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:26[0m
+[1;94m   | [0m
+[1;94m25 | [0m  bio               String?
+[1;94m26 | [0m  [1;91mcountry           String            @default("LK")[0m
+[1;94m27 | [0m  district          District?
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:27[0m
+[1;94m   | [0m
+[1;94m26 | [0m  country           String            @default("LK")
+[1;94m27 | [0m  [1;91mdistrict          District?[0m
+[1;94m28 | [0m  languages         Language[]
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:28[0m
+[1;94m   | [0m
+[1;94m27 | [0m  district          District?
+[1;94m28 | [0m  [1;91mlanguages         Language[][0m
+[1;94m29 | [0m  platforms         Platform[]
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:29[0m
+[1;94m   | [0m
+[1;94m28 | [0m  languages         Language[]
+[1;94m29 | [0m  [1;91mplatforms         Platform[][0m
+[1;94m30 | [0m  playStyles        PlayStyle[]
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:30[0m
+[1;94m   | [0m
+[1;94m29 | [0m  platforms         Platform[]
+[1;94m30 | [0m  [1;91mplayStyles        PlayStyle[][0m
+[1;94m31 | [0m  profileVisibility ProfileVisibility @default(PUBLIC)
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:31[0m
+[1;94m   | [0m
+[1;94m30 | [0m  playStyles        PlayStyle[]
+[1;94m31 | [0m  [1;91mprofileVisibility ProfileVisibility @default(PUBLIC)[0m
+[1;94m32 | [0m  allowMessagesFrom MessagePermission @default(ANYONE)
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:32[0m
+[1;94m   | [0m
+[1;94m31 | [0m  profileVisibility ProfileVisibility @default(PUBLIC)
+[1;94m32 | [0m  [1;91mallowMessagesFrom MessagePermission @default(ANYONE)[0m
+[1;94m33 | [0m  showDistrict      Boolean           @default(true)
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:33[0m
+[1;94m   | [0m
+[1;94m32 | [0m  allowMessagesFrom MessagePermission @default(ANYONE)
+[1;94m33 | [0m  [1;91mshowDistrict      Boolean           @default(true)[0m
+[1;94m34 | [0m  showLastActive    Boolean           @default(true)
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:34[0m
+[1;94m   | [0m
+[1;94m33 | [0m  showDistrict      Boolean           @default(true)
+[1;94m34 | [0m  [1;91mshowLastActive    Boolean           @default(true)[0m
+[1;94m35 | [0m  ageRange          String?
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:35[0m
+[1;94m   | [0m
+[1;94m34 | [0m  showLastActive    Boolean           @default(true)
+[1;94m35 | [0m  [1;91mageRange          String?[0m
+[1;94m36 | [0m  micPreference     String?
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:36[0m
+[1;94m   | [0m
+[1;94m35 | [0m  ageRange          String?
+[1;94m36 | [0m  [1;91mmicPreference     String?[0m
+[1;94m37 | [0m  availability      String?
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:37[0m
+[1;94m   | [0m
+[1;94m36 | [0m  micPreference     String?
+[1;94m37 | [0m  [1;91mavailability      String?[0m
+[1;94m38 | [0m  lastActiveAt      DateTime          @default(now())
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:38[0m
+[1;94m   | [0m
+[1;94m37 | [0m  availability      String?
+[1;94m38 | [0m  [1;91mlastActiveAt      DateTime          @default(now())[0m
+[1;94m39 | [0m  role              Role              @default(USER)
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:39[0m
+[1;94m   | [0m
+[1;94m38 | [0m  lastActiveAt      DateTime          @default(now())
+[1;94m39 | [0m  [1;91mrole              Role              @default(USER)[0m
+[1;94m40 | [0m  createdAt         DateTime          @default(now())
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:40[0m
+[1;94m   | [0m
+[1;94m39 | [0m  role              Role              @default(USER)
+[1;94m40 | [0m  [1;91mcreatedAt         DateTime          @default(now())[0m
+[1;94m41 | [0m  updatedAt         DateTime          @updatedAt
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:41[0m
+[1;94m   | [0m
+[1;94m40 | [0m  createdAt         DateTime          @default(now())
+[1;94m41 | [0m  [1;91mupdatedAt         DateTime          @updatedAt[0m
+[1;94m42 | [0m
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:43[0m
+[1;94m   | [0m
+[1;94m42 | [0m
+[1;94m43 | [0m  [1;91mgameProfiles      UserGameProfile[][0m
+[1;94m44 | [0m  
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:45[0m
+[1;94m   | [0m
+[1;94m44 | [0m  
+[1;94m45 | [0m  [1;91msentRequests      FriendRequest[]   @relation("Sender")[0m
+[1;94m46 | [0m  receivedReqs      FriendRequest[]   @relation("Receiver")
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:46[0m
+[1;94m   | [0m
+[1;94m45 | [0m  sentRequests      FriendRequest[]   @relation("Sender")
+[1;94m46 | [0m  [1;91mreceivedReqs      FriendRequest[]   @relation("Receiver")[0m
+[1;94m47 | [0m  friendsAsUser1    Friendship[]      @relation("User1")
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:47[0m
+[1;94m   | [0m
+[1;94m46 | [0m  receivedReqs      FriendRequest[]   @relation("Receiver")
+[1;94m47 | [0m  [1;91mfriendsAsUser1    Friendship[]      @relation("User1")[0m
+[1;94m48 | [0m  friendsAsUser2    Friendship[]      @relation("User2")
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:48[0m
+[1;94m   | [0m
+[1;94m47 | [0m  friendsAsUser1    Friendship[]      @relation("User1")
+[1;94m48 | [0m  [1;91mfriendsAsUser2    Friendship[]      @relation("User2")[0m
+[1;94m49 | [0m
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:50[0m
+[1;94m   | [0m
+[1;94m49 | [0m
+[1;94m50 | [0m  [1;91mconversations     ConversationParticipant[] @relation("Participant")[0m
+[1;94m51 | [0m  messages          Message[]                 @relation("MessageSender")
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:51[0m
+[1;94m   | [0m
+[1;94m50 | [0m  conversations     ConversationParticipant[] @relation("Participant")
+[1;94m51 | [0m  [1;91mmessages          Message[]                 @relation("MessageSender")[0m
+[1;94m52 | [0m  readStates        MessageReadState[]        @relation("ReadStateUser")
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: This line is not an enum value definition.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:52[0m
+[1;94m   | [0m
+[1;94m51 | [0m  messages          Message[]                 @relation("MessageSender")
+[1;94m52 | [0m  [1;91mreadStates        MessageReadState[]        @relation("ReadStateUser")[0m
+[1;94m53 | [0m}
+[1;94m   | [0m
+[1;91merror[0m: [1mError validating: An enum must have at least one value.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:10[0m
+[1;94m   | [0m
+[1;94m 9 | [0m
+[1;94m10 | [0m[1;91menum Role { USER; MODERATOR; ADMIN; SUPER_ADMIN }[0m
+[1;94m11 | [0menum ProfileVisibility { PUBLIC; FRIENDS_ONLY; PRIVATE }
+[1;94m12 | [0menum MessagePermission { ANYONE; FRIENDS_ONLY }
+[1;94m13 | [0menum District { COLOMBO; GAMPAHA; KALUTARA; KANDY; MATALE; NUWARA_ELIYA; GALLE; MATARA; HAMBANTOTA; JAFFNA; KILINOCHCHI; MANNAR; VAVUNIYA; MULLAITIVU; BATTICALOA; AMPARA; TRINCOMALEE; KURUNEGALA; PUTTALAM; ANURADHAPURA; POLONNARUWA; BADULLA; MONARAGALA; RATNAPURA; KEGALLE }
+[1;94m14 | [0menum Language { ENGLISH; SINHALA; TAMIL }
+[1;94m15 | [0menum Platform { PC; PLAYSTATION; XBOX; MOBILE; SWITCH }
+[1;94m16 | [0menum PlayStyle { CASUAL; COMPETITIVE; CHILL; TRYHARD; RANKED_PUSH; BEGINNER_FRIENDLY }
+[1;94m17 | [0m
+[1;94m18 | [0mmodel User {
+[1;94m19 | [0m  id                String            @id @default(cuid())
+[1;94m20 | [0m  email             String            @unique
+[1;94m21 | [0m  passwordHash      String
+[1;94m22 | [0m  displayName       String
+[1;94m23 | [0m  username          String            @unique
+[1;94m24 | [0m  profilePhoto      String?
+[1;94m25 | [0m  bio               String?
+[1;94m26 | [0m  country           String            @default("LK")
+[1;94m27 | [0m  district          District?
+[1;94m28 | [0m  languages         Language[]
+[1;94m29 | [0m  platforms         Platform[]
+[1;94m30 | [0m  playStyles        PlayStyle[]
+[1;94m31 | [0m  profileVisibility ProfileVisibility @default(PUBLIC)
+[1;94m32 | [0m  allowMessagesFrom MessagePermission @default(ANYONE)
+[1;94m33 | [0m  showDistrict      Boolean           @default(true)
+[1;94m34 | [0m  showLastActive    Boolean           @default(true)
+[1;94m35 | [0m  ageRange          String?
+[1;94m36 | [0m  micPreference     String?
+[1;94m37 | [0m  availability      String?
+[1;94m38 | [0m  lastActiveAt      DateTime          @default(now())
+[1;94m39 | [0m  role              Role              @default(USER)
+[1;94m40 | [0m  createdAt         DateTime          @default(now())
+[1;94m41 | [0m  updatedAt         DateTime          @updatedAt
+[1;94m42 | [0m
+[1;94m43 | [0m  gameProfiles      UserGameProfile[]
+[1;94m44 | [0m  
+[1;94m45 | [0m  sentRequests      FriendRequest[]   @relation("Sender")
+[1;94m46 | [0m  receivedReqs      FriendRequest[]   @relation("Receiver")
+[1;94m47 | [0m  friendsAsUser1    Friendship[]      @relation("User1")
+[1;94m48 | [0m  friendsAsUser2    Friendship[]      @relation("User2")
+[1;94m49 | [0m
+[1;94m50 | [0m  conversations     ConversationParticipant[] @relation("Participant")
+[1;94m51 | [0m  messages          Message[]                 @relation("MessageSender")
+[1;94m52 | [0m  readStates        MessageReadState[]        @relation("ReadStateUser")
+[1;94m53 | [0m}
+[1;94m   | [0m
+[1;91merror[0m: [1mType "Platform" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:93[0m
+[1;94m   | [0m
+[1;94m92 | [0m  inGameName       String
+[1;94m93 | [0m  platform         [1;91mPlatform[0m
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:104[0m
+[1;94m   | [0m
+[1;94m103 | [0m
+[1;94m104 | [0m  user [1;91mUser[0m @relation(fields: [userId], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:116[0m
+[1;94m   | [0m
+[1;94m115 | [0m
+[1;94m116 | [0m  sender     [1;91mUser[0m     @relation("Sender", fields: [senderId], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:117[0m
+[1;94m   | [0m
+[1;94m116 | [0m  sender     User     @relation("Sender", fields: [senderId], references: [id], onDelete: Cascade)
+[1;94m117 | [0m  receiver   [1;91mUser[0m     @relation("Receiver", fields: [receiverId], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:127[0m
+[1;94m   | [0m
+[1;94m126 | [0m
+[1;94m127 | [0m  user1     [1;91mUser[0m     @relation("User1", fields: [user1Id], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:128[0m
+[1;94m   | [0m
+[1;94m127 | [0m  user1     User     @relation("User1", fields: [user1Id], references: [id], onDelete: Cascade)
+[1;94m128 | [0m  user2     [1;91mUser[0m     @relation("User2", fields: [user2Id], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:148[0m
+[1;94m   | [0m
+[1;94m147 | [0m  conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+[1;94m148 | [0m  user            [1;91mUser[0m         @relation("Participant", fields: [userId], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:160[0m
+[1;94m   | [0m
+[1;94m159 | [0m  conversation    Conversation       @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+[1;94m160 | [0m  sender          [1;91mUser[0m               @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+[1;91merror[0m: [1mType "User" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:171[0m
+[1;94m   | [0m
+[1;94m170 | [0m  message         Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+[1;94m171 | [0m  user            [1;91mUser[0m     @relation("ReadStateUser", fields: [userId], references: [id], onDelete: Cascade)
+[1;94m   | [0m
+
+Validation Error Count: 48[22m[39m
+[Context: validate]
+
+Prisma CLI Version : 5.22.0

@@ -1,0 +1,234 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  MODERATOR
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum ProfileVisibility {
+  PUBLIC
+  FRIENDS_ONLY
+  PRIVATE
+}
+
+enum MessagePermission {
+  ANYONE
+  FRIENDS_ONLY
+}
+
+enum District {
+  COLOMBO
+  GAMPAHA
+  KALUTARA
+  KANDY
+  MATALE
+  NUWARA_ELIYA
+  GALLE
+  MATARA
+  HAMBANTOTA
+  JAFFNA
+  KILINOCHCHI
+  MANNAR
+  VAVUNIYA
+  MULLAITIVU
+  BATTICALOA
+  AMPARA
+  TRINCOMALEE
+  KURUNEGALA
+  PUTTALAM
+  ANURADHAPURA
+  POLONNARUWA
+  BADULLA
+  MONARAGALA
+  RATNAPURA
+  KEGALLE
+}
+
+enum Language {
+  ENGLISH
+  SINHALA
+  TAMIL
+}
+
+enum Platform {
+  PC
+  PLAYSTATION
+  XBOX
+  MOBILE
+  SWITCH
+}
+
+enum PlayStyle {
+  CASUAL
+  COMPETITIVE
+  CHILL
+  TRYHARD
+  RANKED_PUSH
+  BEGINNER_FRIENDLY
+}
+
+model User {
+  id                String            @id @default(cuid())
+  email             String            @unique
+  passwordHash      String
+  displayName       String
+  username          String            @unique
+  profilePhoto      String?
+  bio               String?
+  country           String            @default("LK")
+  district          District?
+  languages         Language[]
+  platforms         Platform[]
+  playStyles        PlayStyle[]
+  profileVisibility ProfileVisibility @default(PUBLIC)
+  allowMessagesFrom MessagePermission @default(ANYONE)
+  showDistrict      Boolean           @default(true)
+  showLastActive    Boolean           @default(true)
+  ageRange          String?
+  micPreference     String?
+  availability      String?
+  lastActiveAt      DateTime          @default(now())
+  role              Role              @default(USER)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  gameProfiles      UserGameProfile[]
+  
+  sentRequests      FriendRequest[]   @relation("Sender")
+  receivedReqs      FriendRequest[]   @relation("Receiver")
+  friendsAsUser1    Friendship[]      @relation("User1")
+  friendsAsUser2    Friendship[]      @relation("User2")
+
+  conversations     ConversationParticipant[] @relation("Participant")
+  messages          Message[]                 @relation("MessageSender")
+  readStates        MessageReadState[]        @relation("ReadStateUser")
+}
+
+model Game {
+  id               String   @id @default(cuid())
+  name             String   @unique
+  slug             String   @unique
+  iconUrl          String?
+  category         String?
+  hasRoleSelection Boolean  @default(false)
+  hasServerSelect  Boolean  @default(false)
+  hasModeSelect    Boolean  @default(false)
+
+  rankDefinition   GameRankDefinition?
+  profiles         UserGameProfile[]
+}
+
+model GameRankDefinition {
+  id            String             @id @default(cuid())
+  gameId        String             @unique
+  game          Game               @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  isFreeText    Boolean            @default(false)
+  hasTiers      Boolean            @default(false)
+  options       GameRankOption[]
+}
+
+model GameRankOption {
+  id            String             @id @default(cuid())
+  definitionId  String
+  definition    GameRankDefinition @relation(fields: [definitionId], references: [id], onDelete: Cascade)
+  label         String
+  tier          String?
+  sortPriority  Int                @default(0)
+  isActive      Boolean            @default(true)
+}
+
+model UserGameProfile {
+  id               String   @id @default(cuid())
+  userId           String
+  gameId           String
+  inGameName       String
+  platform         Platform
+  rank             String
+  secondaryRank    String?
+  role             String?
+  preferredMode    String?
+  server           String?
+  yearsExperience  Int?
+  lookingForTeam   Boolean  @default(false)
+  isVerified       Boolean  @default(false)
+  notes            String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  @@unique([userId, gameId])
+}
+
+model FriendRequest {
+  id         String   @id @default(cuid())
+  senderId   String
+  receiverId String
+  status     String   @default("PENDING") // PENDING, ACCEPTED, DECLINED
+  createdAt  DateTime @default(now())
+
+  sender     User     @relation("Sender", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver   User     @relation("Receiver", fields: [receiverId], references: [id], onDelete: Cascade)
+  @@unique([senderId, receiverId])
+}
+
+model Friendship {
+  id        String   @id @default(cuid())
+  user1Id   String
+  user2Id   String
+  createdAt DateTime @default(now())
+
+  user1     User     @relation("User1", fields: [user1Id], references: [id], onDelete: Cascade)
+  user2     User     @relation("User2", fields: [user2Id], references: [id], onDelete: Cascade)
+  @@unique([user1Id, user2Id])
+}
+
+model Conversation {
+  id            String                    @id @default(cuid())
+  isGroup       Boolean                   @default(false)
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime                  @updatedAt
+  participants  ConversationParticipant[]
+  messages      Message[]
+}
+
+model ConversationParticipant {
+  id              String       @id @default(cuid())
+  conversationId  String
+  userId          String
+  joinedAt        DateTime     @default(now())
+  
+  conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user            User         @relation("Participant", fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([conversationId, userId])
+}
+
+model Message {
+  id              String             @id @default(cuid())
+  conversationId  String
+  senderId        String
+  content         String
+  createdAt       DateTime           @default(now())
+  
+  conversation    Conversation       @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender          User               @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  readStates      MessageReadState[]
+}
+
+model MessageReadState {
+  id              String   @id @default(cuid())
+  messageId       String
+  userId          String
+  readAt          DateTime @default(now())
+  
+  message         Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user            User     @relation("ReadStateUser", fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([messageId, userId])
+}
